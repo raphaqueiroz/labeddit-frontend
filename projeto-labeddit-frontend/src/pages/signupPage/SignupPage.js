@@ -12,10 +12,12 @@ const SignupPage = () => {
 
     const fazerCadastro = (event) => {
         event.preventDefault();
+        
         axios.post("https://labeddit-backend-saie.onrender.com/users/signup",form).then(
             (response)=>{
                 localStorage.setItem("token",response.data.token)
                 alert(response.data.message ||response.data )
+                console.log(form)
                 handlePosts(navigate)
             }
         ).catch((error)=>{alert("Não foi possível criar conta")});
