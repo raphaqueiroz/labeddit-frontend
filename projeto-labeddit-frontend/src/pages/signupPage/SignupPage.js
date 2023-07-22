@@ -7,7 +7,7 @@ import { ButtonCadastrar, ContainerSignin, StyledForm, StyledInput, StyledTitulo
 
 
 const SignupPage = () => {
-    const { form, onChange } = useForm({ name: "", email: "", password: "" });
+    const { form, onChange } = useForm({nickName: "", name: "", email: "", password: "" });
     const navigate = useNavigate();
 
     const fazerCadastro = (event) => {
@@ -23,14 +23,22 @@ const SignupPage = () => {
     return (
         <ContainerSignin>
             <Header/>
-            <StyledTitulo>Olá, boas vindas ao LabEddit ;)</StyledTitulo>
+            <StyledTitulo>Olá, boas vindas ao LabEddit ;</StyledTitulo>
             <StyledForm onSubmit={fazerCadastro}>
+                <StyledInput
+                    name="nickName"
+                    value={form.nickName}
+                    onChange={onChange}
+                    type="text"
+                    placeholder=" Apelido"
+
+                />
                 <StyledInput
                     name="name"
                     value={form.name}
                     onChange={onChange}
                     type="text"
-                    placeholder=" Apelido"
+                    placeholder=" Nome"
                     required
                 />
                 <StyledInput
