@@ -17,7 +17,6 @@ const SignupPage = () => {
             (response)=>{
                 localStorage.setItem("token",response.data.token)
                 alert(response.data.message ||response.data )
-                console.log(form)
                 handlePosts(navigate)
             }
         ).catch((error)=>{alert("Não foi possível criar conta")});
